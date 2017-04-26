@@ -40,7 +40,7 @@ RUN set -x \
         15 00 * * * cd /home/hlxce/ && su-exec hlxce ./hlstats-awards.pl >/dev/null 2>&1 \
         ' >> /root/daemon.txt \
         && chmod +x GeoLiteCity/install_binary.sh \
-        && exec GeoLiteCity/install_binary.sh \
+        && ./GeoLiteCity/install_binary.sh \
         && chown hlxce:hlxce -R . \
 	    && apk add --virtual .httpd-rundeps $runDeps \
 	    && apk del .build-deps
