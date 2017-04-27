@@ -29,16 +29,15 @@ RUN set -x \
         \
         && cpan install Geo::IP::PurePerl \
         && addgroup -S hlxce \
-        && adduser -S -h /home/hlxce/ -s /bin/sh -g hlxce hlxce \
+        && adduser -S -h /home/hlxce/ -s /bin/bash -g hlxce hlxce \
         && rm -rf /var/cache/apk/* \
         && chmod +x /usr/local/bin/docker-hlxce-daemon-entrypoint \
         && curl -L https://bitbucket.org/Maverick_of_UC/hlstatsx-community-edition/downloads/hlxce_${HLXCE_VERSION}.tar.gz -o hlxce.tar.gz \
         && tar -zxvf hlxce.tar.gz --strip-components=1 scripts/ \
         && rm -rf hlxce.tar.gz \
         && chmod +x hlstats-awards.pl hlstats.pl hlstats-resolve.pl run_hlstats \
-        && echo '*/5 * * * * cd /home/hlxce/ && su-exec hlxce ./run_hlstats start >/dev/null 2>&1 \
-        15 00 * * * cd /home/hlxce/ && su-exec hlxce ./hlstats-awards.pl >/dev/null 2>&1 \
-        ' >> /root/daemon.txt \
+        && echo $'*/5 * * * * cd /home/hlxce/ && su-exec hlxce ./run_hlstats start >/dev/null 2>&1' >> /root/daemon.txt \
+        && echo $'15 00 * * * cd /home/hlxce/ && su-exec hlxce ./hlstats-awards.pl >/dev/null 2>&1\n' >> /root/daemon.txt \
         && chmod +x GeoLiteCity/install_binary.sh \
         && ./GeoLiteCity/install_binary.sh \
         && chown hlxce:hlxce -R . \
