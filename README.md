@@ -1,6 +1,8 @@
 # HLstatsX:CE Daemon
 An alpine [Docker image](https://hub.docker.com/r/crinis/hlxce-daemon/) for running the HLstatsX:CE daemon in a Docker container.
 
+> I do not recommend using this image anymore as the original project HLstatsX:CE has not been updated for years. I have no influence on that. Consider this project deprecated.
+
 ## Getting Started
 This Docker image can be used stand-alone, but is recommended to be used with my [HLstatsX: CE Docker image](https://github.com/crinis/hlxce-docker). You will also find usage instructions and an example docker-compose.yml file in the [HLstatsX: CE Docker container](https://github.com/crinis/hlxce-docker) repository.
 
